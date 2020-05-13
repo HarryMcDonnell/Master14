@@ -56,6 +56,28 @@ const deposit = (amountRaw) => {
         console.log(`${amountInt} GBP deposited.`);
     }
 }
+const transLog = (day) => {
+    day = prompt("Please enter day of week you want to check:");
+    switch(day) {
+        case "MONDAY":
+            console.log("Interest added: £30.49");
+            break;
+        case "TUESDAY":
+            console.log("Account debited: £102.99")
+        case "WEDNESDAY":
+        case "THURSDAY":
+            console.log
+        case "FRIDAY":
+            console.log
+        case "SATURDAY":
+            console.log
+        case "SUNDAY":
+            console.log
+        default:
+            console.log("Please enter a day of the week.");
+            break;
+    }
+}
 acceptAcc(prompt("Enter your account number:"));
 if (AccCorrect == true) {
     while (pinAttempts > 0) {
@@ -81,7 +103,7 @@ else {
 
 if (loggedIn == true) {
     do {
-    let choice = parseInt(prompt("Please type selection: 1.) Check Balance.  2.)Withdraw."))
+    let choice = parseInt(prompt("Please type selection: 1.) Check Balance.  2.)Withdraw. 3.)Deposit. 4.)Change Pin."))
     switch(choice) {
         case 1:
             console.log(`Your available balance is ${accBalance} GBP.`);
@@ -92,13 +114,15 @@ if (loggedIn == true) {
         case 3:
             deposit(prompt("How much will you deposit?"));
             break;
+        case 4:
+            changePin(prompt("Please enter current pin:"));
+            break;
         default:
             console.log("Input not recognised");
             break;
     }
-    while (loggedIn == true); 
+    } while (loggedIn == true); 
 }
-} 
 } while (quit == false);
 /*if (pinAttempts > 0) {
     acceptAcc(1111);
