@@ -4,37 +4,36 @@ const btn = document.getElementById('btn');
 const gameInfo = document.getElementById('gameInfo');
 const image = document.createElement('img');
 const wrapper = document.getElementById('wrapper');
+const loseScreen = document.createElement('div');
+loseScreen.classList.add('lose');
 btn.onclick = () => {
-    document.getElementById('score').value = score;
+    //document.getElementById('score').value = score;
     diceRoll = Math.ceil(Math.random()*6);
-    image.src = (`/img/dice${diceRoll}.png`);
+    //diceRoll = 1;
     score +=diceRoll;
+    gameInfo.textContent = `You rolled a ${diceRoll}. Score: ${score}`;
+    image.src = (`/img/dice${diceRoll}.png`);
     image.classList.add('image');
     gameInfo.appendChild(image);
     console.log(diceRoll);
     console.log(score);
+    if (diceRoll == 1 && score <= 21) {
+        loseCondition();
+    }
+    if (score >= 21) {
+        winCondition(); 
+    }
 }
 
-if (diceRoll == 1 && score <= 21) {
-    const loseScreen = document.createElement('div');
-    loseScreen.classList.add('lose');
+const loseCondition = () => {
+    wrapper.removeChild(gameInfo);
     wrapper.appendChild(loseScreen);
-    btn.classList.hide;
+    loseScreen.textContent = ('You rolled a 1. You lose.');
+    btn.style.visibility = "hidden";
 }
-if (score >= 21) {
-    //victory screen 
+const winCondition = () => {
+    wrapper.removeChild(gameInfo);
+    wrapper.appendChild(loseScreen);
+    loseScreen.textContent = "You won!";
+    btn.style.visibility = "hidden";
 }
-
-//test
-
-
-// let array = ["a", "b", "c"];
-
-// for (let i = 0; i < array.length; i++) {
-//     console.log(array[i]);
-    
-// }
-
-// for (const letter of array) {
-//     console.log(letter);
-// }

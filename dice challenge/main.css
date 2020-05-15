@@ -37,17 +37,20 @@ body {
 	flex: auto;
 	text-align: center;
 	justify-content: space-around;
-	
-	font-size: 20pt;
+	font-size: 21pt;
 }
 #score {
 	font-size: 25pt;
 	color: black;
 }
 .lose {
-	width: 80%;
-	height: 80%;
-	background-color: blue;
+	width: 25%;
+	height: 25%;
+	text-align: center;
+	
+	font-size: 24pt;
+	background-color: rgba(247, 149, 3, 0.411);
+	color: black;
 }
 #btn {
     margin: 10px;
